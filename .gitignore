@@ -67,3 +67,5 @@ htmlcov/
 
 # Temporary files
 tempCodeRunnerFile.py
+
+best_model.keras
