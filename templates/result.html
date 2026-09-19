@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Waste Classification Result</h1>
+
+<p class="subtitle">The AI model has analyzed the image</p>
+
+<img src="{{ url_for('static', filename='uploads/' + filename) }}" class="preview-img">
+
+<br><br>
+
+<p><strong>Predicted Category:</strong> {{ category }}</p>
+<p><strong>Confidence:</strong> {{ confidence }}</p>
+
+<br>
+
+<div class="confidence-bar">
+    <div class="confidence-fill" style="width: {{ confidence }}"></div>
+</div>
+
+<br><br>
+
+<p class="guidance">
+    Disposal Guidance: Send to recycling facility
+</p>
+
+<hr>
+
+<h2>Rate This Prediction</h2>
+
+<form action="{{ url_for('feedback') }}" method="POST">
+
+    <input
+        type="hidden"
+        name="prediction_id"
+        value="{{ prediction_id }}">
+
+    <label><strong>Rating</strong></label>
+
+    <br><br>
+
+    <select name="rating" required>
+        <option value="">Select Rating</option>
+        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+        <option value="4">⭐⭐⭐⭐ Good</option>
+        <option value="3">⭐⭐⭐ Average</option>
+        <option value="2">⭐⭐ Poor</option>
+        <option value="1">⭐ Very Poor</option>
+    </select>
+
+    <br><br>
+
+    <label><strong>Comments</strong></label>
+
+    <br><br>
+
+    <textarea
+        name="comments"
+        rows="4"
+        cols="45"
+        placeholder="Write your feedback here..."></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Submit Feedback
+    </button>
+
+</form>
+
+<br>
+
+<a href="/">Classify Another Image</a>
+
+{% endblock %}

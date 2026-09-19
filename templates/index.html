@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>AI Waste Classification</h1>
+<p class="subtitle">Upload waste image</p>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<div class="upload-box" id="drop-area">
+    <p>Drag & Drop Waste Image Here</p>
+    <small>or click to upload</small>
+</div>
+
+<input type="file" name="image" id="fileInput" required>
+
+<p id="fileName" class="file-name"></p>
+
+<p class="or-text">OR</p>
+
+<div class="button-group">
+    <button type="button" onclick="document.getElementById('fileInput').click()">
+        Choose File
+    </button>
+
+    <button type="submit">Analyze Waste</button>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+
+#

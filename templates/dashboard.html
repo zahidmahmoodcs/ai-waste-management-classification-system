@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--<h1>Welcome {{ session.username }}</h1> -->
+<p class="subtitle"><b>System Monitoring and Analytics Dashboard</b></p>
+
+<!-- Statistics Cards -->
+<div class="stats">
+
+    <div class="card">
+        Total<br>
+        <strong>{{ data.total }}</strong>
+    </div>
+
+    {% for cat, value in data.counts.items() %}
+    <div class="card">
+        {{ cat }}<br>
+        <strong>{{ value }}</strong>
+    </div>
+    {% endfor %}
+
+</div>
+
+<h2>Waste Classification Distribution</h2>
+
+<div class="chart-container">
+    <canvas id="chart"></canvas>
+</div>
+
+<br>
+
+<h2>Prediction History</h2>
+
+<table>
+
+    <tr>
+        <th>Filename</th>
+        <th>Category</th>
+        <th>Confidence</th>
+        <th>Time</th>
+        <th>Rating</th>
+        <th>Comments</th>
+    </tr>
+
+    {% for item in history %}
+    <tr>
+
+        <td>{{ item.filename }}</td>
+
+        <td>{{ item.category }}</td>
+
+        <td>{{ item.confidence }}</td>
+
+        <td>{{ item.time }}</td>
+
+        <td>
+            {% if item.rating %}
+                {{ item.rating }}/5
+            {% else %}
+                -
+            {% endif %}
+        </td>
+
+        <td>
+            {% if item.comments %}
+                {{ item.comments }}
+            {% else %}
+                -
+            {% endif %}
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="{{ url_for('home') }}">
+    <button>Classify Another Image</button>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const labels = {{ data.counts.keys() | list | tojson }};
+const values = {{ data.counts.values() | list | tojson }};
+
+const ctx = document.getElementById("chart").getContext("2d");
+
+new Chart(ctx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: labels,
+
+        datasets: [{
+
+            label: "Number of Predictions",
+
+            data: values,
+
+            backgroundColor: [
+
+                "#3b82f6",
+                "#10b981",
+                "#f59e0b",
+                "#ef4444",
+                "#8b5cf6",
+                "#14b8a6"
+
+            ],
+
+            borderWidth: 1
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        maintainAspectRatio: false,
+
+        plugins: {
+
+            legend: {
+
+                display: false
+
+            }
+
+        },
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

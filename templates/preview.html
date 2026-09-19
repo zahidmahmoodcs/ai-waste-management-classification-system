@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Image Preview</h1>
+<p class="subtitle">Confirm your image before analysis</p>
+
+<img src="{{ url_for('static', filename='uploads/' + filename) }}" class="preview-img">
+<br><br>
+
+<form action="/predict" method="POST">
+    <input type="hidden" name="filename" value="{{ filename }}">
+    <button type="submit">Analyze Waste</button>
+</form>
+
+<br>
+
+<a href="/">Upload Another Image</a>
+
+{% endblock %}

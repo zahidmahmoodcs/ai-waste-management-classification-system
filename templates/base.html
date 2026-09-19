@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Waste Classification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Waste AI</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        {% if session.get('user_id') %}
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<script>
+// Upload logic
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("fileInput");
+const fileName = document.getElementById("fileName");
+
+if (dropArea && fileInput) {
+
+    dropArea.addEventListener("click", () => fileInput.click());
+
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("active");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("active");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("active");
+        fileInput.files = e.dataTransfer.files;
+    });
+
+    fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0 && fileName) {
+            fileName.textContent = fileInput.files[0].name;
+        }
+    });
+}
+
+// 🔥 FIXED — OUTSIDE all other functions
+function togglePassword() {
+    const password = document.getElementById("password");
+
+    if (!password) return;
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+}
+</script>
+</body>
+</html>

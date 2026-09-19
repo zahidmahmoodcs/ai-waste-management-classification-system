@@ -1,0 +1,13 @@
+# Local database
+# Local database
+database.db
+database - Copy.sqbpro
+
+# Virtual environment
+.venv/
+
+# IDE
+.idea/
+
+# Uploaded images
+static/uploads/

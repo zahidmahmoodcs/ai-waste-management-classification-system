@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1f2937;
+    color: white;
+    padding: 15px 40px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Layout */
+.container {
+    text-align: center;
+    margin-top: 70px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* Upload Box */
+.upload-box {
+    display: block;
+    width: 450px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #2563eb;
+    background: #f0f7ff;
+}
+
+.upload-box.active {
+    border-color: #2563eb;
+    background: #e0efff;
+}
+
+.upload-box p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Hide input */
+input[type="file"] {
+    display: none;
+}
+
+/* OR text */
+.or-text {
+    margin: 25px 0;
+    color: #6b7280;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.preview-img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.confidence-bar {
+    width: 300px;
+    height: 20px;
+    background: #e5e7eb;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+.guidance {
+    border: 1px dashed #999;
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 250px;
+    margin: auto;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Stats Cards */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    width: 120px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Table */
+table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 60%;
+    background: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 120px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.chart-container {
+    width: 500px;
+    height: 300px;
+    margin: 30px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
